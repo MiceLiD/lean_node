@@ -1,0 +1,10 @@
+Error: error 日志
+    at Object.<anonymous> (/Users/didi/Desktop/learn_node/nodejs/console/console.js:9:14)
+    at Module._compile (module.js:635:30)
+    at Object.Module._extensions..js (module.js:646:10)
+    at Module.load (module.js:554:32)
+    at tryModuleLoad (module.js:497:12)
+    at Function.Module._load (module.js:489:3)
+    at Function.Module.runMain (module.js:676:10)
+    at startup (bootstrap_node.js:187:16)
+    at bootstrap_node.js:608:3

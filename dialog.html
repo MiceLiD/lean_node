@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <dialog id="dialog">This is an diaLogModal <button id="close">close</button></dialog>
+  <button id="btn">show</button>
+
+  <script>
+    document.getElementById('btn').onclick = (e) => {
+      document.getElementById('dialog').showModal()
+    }
+    document.getElementById('close').onclick = (e) => {
+      document.getElementById('dialog').close()
+    }
+  </script>
+</body>
+</html>
