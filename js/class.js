@@ -1,23 +1,19 @@
 class A {
   constructor() {
-    this.name = 'seven'
+    this.name = '博源'
   }
 
-  static methodA() {
+  init() {
     console.log(this)
+    return this.getName()
   }
-}
-console.log(A.methodA())
 
-class B extends A {
-  static methodB() {
-    console.log('static method B')
-  }
-  methodB_dynamic() {
-    console.log('static dy B')
+  getName() {
+    console.log(this.name)
+    return this.name
   }
 }
 
-let b = new B()
-
-// console.log(b.__proto__)
+let a = new A()
+let v = a.init()
+console.log(v)
