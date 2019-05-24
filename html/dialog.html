@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <dialog id="dialog">This is an diaLogModal <button id="close">close</button></dialog>
-  <button id="btn">show</button>
 
   <script>
-    document.getElementById('btn').onclick = (e) => {
-      document.getElementById('dialog').showModal()
-    }
-    document.getElementById('close').onclick = (e) => {
-      document.getElementById('dialog').close()
-    }
+    let url = 'http://api.map.baidu.com/place/v2/suggestion?query=${query}&region=${city}&output=json&ak=vVUL8hp8uSE0ZSuML85eopGt2bjaCI7b&'
+    axios(url, {
+      method: 'GET',
+      responseType: 'json'
+    })
+      .then(res => {
+        console.log(res)
+      })
   </script>
 </body>
 </html>

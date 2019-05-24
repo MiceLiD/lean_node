@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>event strem</title>
+</head>
+<body>
+  <div>
+    <ul id="ul">
+      
+    </ul>
+  </div>
+  <script>
+    const ul = document.querySelector('#ul')
+    const evtSource = new EventSource("http://localhost:8045/")
+    evtSource.onopen = e => {
+      console.log('open')
+    }
+    evtSource.addEventListener('getnumber', e => {
+      const li = document.createElement('li')
+      li.innerHTML = e.data
+      ul.appendChild(li)
+    })
+    evtSource.onerror = e => {
+      // console.log('onerror', e)
+    }
+    setTimeout(() => {
+      console.log('client close')
+      evtSource.close()
+    }, 20000)
+  </script>
+</body>
+</html>
