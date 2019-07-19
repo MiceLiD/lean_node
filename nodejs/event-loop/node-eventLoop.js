@@ -1,42 +1,45 @@
-console.log('script start')
+const fs = require('fs')
 
-async function async1() {
-  await async2()
-  console.log('async1 end')
-}
-async function async2() {
-  console.log('async2 end') 
-}
-async1()
+// start
+console.log('start')
 
-// function async1() {
-//   return Promise.resolve(async2()).then(() => {
-//     console.log('async1 end')
-//   })
-// }
-
-setTimeout(function() {
-  console.log('setTimeout')
-}, 0)
-
-new Promise(resolve => {
-  console.log('Promise')
-  resolve()
-})
-  .then(function() {
+// timer1
+setTimeout(() => {
+  console.log('timer1')
+  // promise1
+  Promise.resolve().then(function() {
     console.log('promise1')
   })
-  .then(function() {
+}, 100)
+
+// I/O
+fs.readFile('./dedup.js', 'utf8', () => {
+  console.log('I/O')
+})
+
+// nextTick
+process.nextTick(() => {
+  console.log('nextTick')
+})
+
+// timer2
+setTimeout(() => {
+  console.log('timer2')
+  // promise2
+  Promise.resolve().then(() => {
     console.log('promise2')
   })
+}, 0)
 
-console.log('script end')
+// immediate
+setImmediate(() => {
+  console.log('Immediate')
+})
 
-// script start
-// async2 end
-// Promise
-// script end
-// async1 end
-// promise1
-// promise2
-// setTimeout
+// promise3
+Promise.resolve().then(() => {
+  console.log('promise3')
+})
+
+// end
+console.log('end')

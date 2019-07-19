@@ -10,7 +10,7 @@
       "request": "launch",
       "name": "启动程序",
       "runtimeExecutable": "/Users/didi/.nvm/versions/node/v8.3.0/bin/node",
-      "program": "${workspaceFolder}/js/func.js"
+      "program": "${workspaceFolder}/nodejs/event-loop/node-eventLoop.js"
     }
   ]
 }

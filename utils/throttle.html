@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>throttle</title>
+</head>
+<body>
+  <button id="btn">fetch</button>
+  <script>
+    /**
+     * @function
+     * @param { Function } fn 
+     * @param { Number } time 
+     * @param { Object } context
+     */
+    const throttle = (fn, time, immediate, context) => {
+      if (immediate) {
+        return fn.apply(context)
+      }
+      let timer
+      return () => {
+        // 定时器没有被移除，不处理
+        if (timer) {
+          console.log('timer exsit! remove it')
+          clearTimeout(timer)
+          return
+        }
+        timer = setTimeout(() => {
+          fn.apply(context, arguments)
+        }, time)
+      }
+    }
+
+    const fetchSomething = () => {
+      setTimeout(() => {
+        console.log('fetch...', this)
+      }, 1000)
+    }
+
+    const f = throttle(fetchSomething, 1000, true, this)
+
+    document.querySelector('#btn').onclick = f
+  </script>
+</body>
+</html>
